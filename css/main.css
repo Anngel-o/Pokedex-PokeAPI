@@ -43,11 +43,171 @@ button {
     border-radius: 0;
 }
 
-/* Aquí todo el CSS extra */
+body{
+    min-height: 100vh;
+    background-color: var(--clr-gray);
+}
+
+header{
+    padding-block: 1rem;
+    /* padding-block agrega padding-top y -bottom, es para separarlo un poco de la parte superior del documento*/
+    box-shadow: 0 0 2rem -1rem rgba(0, 0, 0, 0.5);
+}
+
+.nav{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem; /*Separación*/
+    align-items: flex-start;
+    padding-inline: 2rem; /*Separa un poco de la parte izquierda del documento*/
+    max-width: 1000px;
+    margin: 0 auto; /*0 arriba ya bajo auto centrará a los lados o costados*/
+}
+
+.nav-list{
+    display: flex; /* Para que los elementos estén uno a lado del otro */
+    align-items: center;
+    flex-wrap: wrap; /*Para que los items que no alcancen en la primera línea no sobresalgan, sino que se vayan para abajo en otra línea*/
+    gap: .5rem; /*Para separar un poco cada item*/
+}
+
+.btn-header{
+    background-color: var(--clr-gray);
+    padding: .5rem;
+    border-radius: 100vmax; 
+    cursor: pointer;
+    text-transform: uppercase; /*Texto en mayúsculas*/
+    font-weight: 600;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.3);
+    transition: .2s;
+}
+
+.btn-header:hover{
+    transform: scale(1.1);
+    box-shadow: 0 0 2rem rgba(0, 0, 0, 0.3);
+}
+
+main{
+    padding: 2rem; /*Lo separa un poco del resto de elementos*/
+    max-width: 1000px;
+    margin: 0 auto; /*0 arriba ya bajo auto centrará a los lados o costados*/
+}
+
+.pokemon-todos{
+    display: grid; /*Grilla de una columna*/
+    grid-template-columns: 1fr;
+    gap: 1rem; /*Separación de pokémon a pokémon*/
+}
+
+@media screen and (min-width: 470px) {
+    .pokemon-todos{
+        grid-template-columns: 1fr 1fr;
+        /* Cuando la página llegue a un tamaño de 470px las tarjetas pasarán a verse por dos columnas*/
+    }
+}
+
+/* Diseño Responsive */
+@media screen and (min-width: 710px) {
+    .pokemon-todos{
+        grid-template-columns: 1fr 1fr 1fr;
+        /* Cuando la página llegue a un tamaño de 710px las tarjetas pasarán a verse por tres columnas*/
+    }
+}
+
+.pokemon{
+    border-radius: 1rem;
+    background-color: var(--clr-white);
+    box-shadow:  0 0 3rem -1rem rgba(0, 0, 0, 0.3);
+    padding-block: 1rem; /*Separación de arriba y abajo  en el borde*/
+    text-transform: uppercase;
+    position: relative;
+    isolation: isolate; /*Indica a sus hijos que la profundidad máxima que pueden tener es un nivel atrás de su padre*/
+    overflow: hidden; /*Todo elemento que sobresalga en tamaño se recortará para estar dentro de él*/
+}
+
+.pokemon-id-back{
+    position: absolute;
+    /* Su parde debe tener la propiedad de relative para ser visible */
+    top: 1rem;
+    left: 50%;
+    transform: translateX(-50%); /*Centrar el texto*/
+    font-size: 6rem;
+    font-weight: 600;
+    color: var(--clr-gray);
+    z-index: -1; /*Para que no se vaya hasta atrás de la tarjeta, sino dentro de la tarjeta y atrás de la imagen del pokémon su padre debe tener isolation*/
+}
+
+.pokemon-imagen{
+    padding-inline: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+.pokemon-imagen img{
+    width: 100%;
+    max-width: 6rem;
+}
+
+.pokemon-info{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    padding-inline: 1rem;
+    align-items: center;
+    text-align: center;
+}
+
+.nombre-contenedor{
+    display: flex; /*Un elemento a lado de otro: id pokémon y nombre*/
+    align-items: center;
+    column-gap: .5rem;
+    flex-wrap: wrap; 
+    /*Hará que al hacerse pequeña la página el nombre se vaya abajo del id y si es grande estará a lado*/
+    justify-content: center; /*El id se centrará cuando el nombre se vaya para abajo de él (ocurre cuando la página se hace pequeña)*/
+}
+
+.pokemon-id{
+    background-color: var(--clr-gray);
+    padding: 0.25rem .5rem; /*.25 de borde arriba y abajo, .5 a los costados*/
+    border-radius: 100vmax;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.pokemon-nombre{
+    font-size: 1.4rem;
+}
+
+.pokemon-tipos{
+    display: flex; /*Un elemento a lado del otro*/
+    gap: 1.5rem; /*Separación en elementos*/
+    font-size: 0.75rem;
+    font-weight: 500;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.tipo{
+    padding: 0.25rem 0.5rem;
+    border-radius: 100vmax;
+}
+
+.pokemon-stats{
+    display: flex;
+    gap: 1rem;
+    font-size: 0.85rem;
+}
+
+.stat{
+    background-color: var(--clr-gray);
+    padding: 0.25rem 0.5rem;
+    border-radius: 100vmax;
+}
 
 
 
-/* Aquí comienzan los colores de botones según tipo */
+/* Colores de botones según tipo */
+
 .normal {
     background-color: var(--type-normal);
     color: var(--clr-black);
