@@ -12,8 +12,7 @@ for (let i = 1; i <= 151; i++) {
 function mostrarPokemon(pokemon) {
     let tipos = pokemon.types.map((type) => `
         <p class="${type.type.name} tipo">${type.type.name}</p>
-    `);
-    // map genera un array con lo que le digamos
+    `); // map genera un array con lo que le digamos
     tipos = tipos.join(''); //join junta todos los elementos de un array y los convierte en un sólo string
     // console.log(tipos);
 
